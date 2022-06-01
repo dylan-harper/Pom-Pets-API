@@ -2,6 +2,9 @@
 This is a REST API built in Ruby 2.7.2 and Rails 5.2.6 to serve as a database (psql) for a Mod 3 FE React Native project.
 This app exposes endpoints to create users, projects, and return a user and their associated projects. 
 
+* CI: GitHub Actions
+* CD: Heroku Pipeline (staging)
+
 Available endpoints:
 
 ---
@@ -178,6 +181,3 @@ Available endpoints:
 </details>
 
 ---
-
-* CI: GitHub Actions
-* CD: Heroku Pipeline (staging)
