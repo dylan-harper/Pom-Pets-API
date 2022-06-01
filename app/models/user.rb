@@ -1,7 +1,8 @@
 class User < ApplicationRecord
-  # hstore_accessor :settings,
-  #                 workTime: :integer,
-  #                 shortPomTime: :integer,
-  #                 longPomTime: :integer
+  validates_uniqueness_of :email, :username
+  validates_presence_of :email,
+                        :username,
+                        :profilePhoto,
+                        :settings
 
 end
