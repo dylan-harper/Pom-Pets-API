@@ -79,7 +79,7 @@ RSpec.describe 'create project' do
       post '/api/v1/users', headers: headers, params: payload.to_json
     end
 
-    it 'receives a bad POST request to create a project' do
+    it 'receives a bad POST request to return an error' do
       headers = { 'CONTENT_TYPE' => 'application/json' }
       payload = {
         "projectName": "stretch-tech",
@@ -106,6 +106,5 @@ RSpec.describe 'create project' do
        expect(output[:error][:projectPet]).to eq(["can't be blank"])
        expect(output[:status]).to eq("400 Bad Request")
     end
-
   end
 end
