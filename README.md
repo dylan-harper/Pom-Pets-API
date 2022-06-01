@@ -4,6 +4,8 @@ This app exposes endpoints to create users, projects, and return a user and thei
 
 Available endpoints:
 
+---
+
 #### 1. Create New User: Persists a single user's information to the database
 
 <details>
@@ -48,6 +50,8 @@ Available endpoints:
     }
 ```
 </details>
+
+---
 
 #### 2. Create New Project: Persists a new project's information to the database
 
@@ -116,6 +120,64 @@ Available endpoints:
 ```
 </details>
 
+---
 
-CI: GitHub Actions
-CD: Heroku Pipeline (staging)
+#### 3. Get User: Returns a user's information and their associated projects
+
+<details>
+  <summary> Request </summary>
+  
+  *GET https://pom-pets-api.herokuapp.com/api/v1/users/1*
+  
+  </details>
+  
+  <details>
+    <summary> Response </summary>
+  
+```  
+  {
+    "data": {
+        "id": "1",
+        "type": "user",
+        "attributes": {
+            "id": 1,
+            "username": "Ross",
+            "email": "ross@vanMail.com",
+            "profilePhoto": "url/ross-in-van.png",
+            "settings": {
+                "workTime": "25",
+                "longPomTime": "10",
+                "shortPomTime": "5"
+            },
+            "projects": [
+                {
+                    "id": 1,
+                    "projectName": "stretch-tech",
+                    "projectPet": "tomato",
+                    "petHealth": 3,
+                    "petLevel": 1,
+                    "projectGitHub": "url/ross-van-stretch-tech.com",
+                    "petImage": "url/PigeonPet.png",
+                    "stats": {
+                        "totalWorkTime": "175",
+                        "totalLongPomTime": "100",
+                        "totalLongSessions": "4",
+                        "totalShortPomTime": "45",
+                        "totalWorkSessions": "5",
+                        "totalShortSessions": "8"
+                    },
+                    "created_at": "2022-06-01T19:26:22.891Z",
+                    "updated_at": "2022-06-01T19:26:22.891Z",
+                    "user_id": 1
+                }
+            ]
+        }
+    }
+}
+```
+</details>
+
+---
+
+* CI: GitHub Actions
+* CD: Heroku Pipeline (staging)
