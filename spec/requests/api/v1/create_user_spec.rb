@@ -32,7 +32,7 @@ RSpec.describe 'create user' do
   end
 
   describe 'sad path' do
-    it 'receives a POST request to create a user' do
+    it 'receives a bad POST request to return an error' do
       headers = { 'CONTENT_TYPE' => 'application/json' }
       payload = {
         "email": "ross@vanMail.com",

@@ -1,5 +1,8 @@
 class UserSerializer
   include JSONAPI::Serializer
-  # has_many :projects
   attributes :id, :username, :email, :profilePhoto, :settings
+
+  attribute :projects do |object|
+    object.projects
+  end
 end
