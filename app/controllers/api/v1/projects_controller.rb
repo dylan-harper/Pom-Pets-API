@@ -9,6 +9,20 @@ class Api::V1::ProjectsController < ApplicationController
     end
   end
 
+  def update
+    project = Project.find(params[:id])
+    if project_params[:stats] && project.stats.keys.include?(project_params[:stats].keys.first)
+      project.update_column(:stats, project.stats.merge({ project_params[:stats].keys.first => project_params[:stats].values.first }))
+      return render json: ProjectSerializer.new(project), status: 200
+    end
+
+    if project.update(project_params) && project_params != {}
+      return render json: ProjectSerializer.new(project), status: 200
+    else
+      return render json: { error: project.errors, status: "400 Bad Request" }, status: 400
+    end
+  end
+
 private
 
   def project_params
