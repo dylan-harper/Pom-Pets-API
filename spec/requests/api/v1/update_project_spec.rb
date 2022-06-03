@@ -95,5 +95,20 @@ RSpec.describe 'update project' do
                                           :totalLongSessions => 9})
     end
 
+    it 'cannot update part of a projects nested attributes' do
+      new_params = { stats: { totalTwerkTime: 500 }}
+      headers = {"CONTENT_TYPE" => "application/json"}
+      patch "/api/v1/projects/#{Project.last.id}", headers: headers, params: JSON.generate({project: new_params})
+      output = JSON.parse(response.body, symbolize_names: true)
+      expect(output[:status]).to eq("400 Bad Request")
+    end
+
+    it 'cannot update part of a projects normal attributes' do
+      new_params = { projectMet: "bibby" }
+      headers = {"CONTENT_TYPE" => "application/json"}
+      patch "/api/v1/projects/#{Project.last.id}", headers: headers, params: JSON.generate({project: new_params})
+      output = JSON.parse(response.body, symbolize_names: true)
+      expect(output[:status]).to eq("400 Bad Request")
+    end
   end
 end
