@@ -193,6 +193,12 @@ Available endpoints:
   { "profilePhoto": "myNewPhoto.png" }
   `
   
+  *Note: For nested attributes within settings hash, structure the json body like the following:*
+  
+  `
+  { settings: { workTime: 500 }}
+  `
+  
   </details>
   
   <details>
@@ -254,6 +260,11 @@ Available endpoints:
   { projectPet: "bibby" }
   `
   
+  *Note: For nested attributes within stats hash, structure the json body like the following:*
+  
+  `
+  { stats: { totalWorkTime: 500 }}
+  `
   </details>
   
   <details>
