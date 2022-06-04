@@ -188,7 +188,10 @@ Available endpoints:
   <summary> Request </summary>
   
   *PATCH https://pom-pets-api.herokuapp.com/api/v1/users/1*
+  
+  `
   { "profilePhoto": "myNewPhoto.png" }
+  `
   
   </details>
   
@@ -232,6 +235,59 @@ Available endpoints:
                     "user_id": 1
                 }
             ]
+        }
+    }
+}
+```
+</details>
+
+---
+
+#### 5. Update Project: Updates part of a project
+
+<details>
+  <summary> Request </summary>
+  
+  *PATCH https://pom-pets-api.herokuapp.com/api/v1/projects/1*
+  
+  `
+  { projectPet: "bibby" }
+  `
+  
+  </details>
+  
+  <details>
+    <summary> Response </summary>
+  
+```  
+  {
+    "data": {
+        "id": "1",
+        "type": "project",
+        "attributes": {
+            "projectName": "stretch-tech",
+            "projectPet": "bibby",
+            "petHealth": 3,
+            "petLevel": 1,
+            "projectGitHub": "url/ross-van-stretch-tech.com",
+            "petImage": "url/PigeonPet.png",
+            "user_id": 1,
+            "stats": {
+                "totalWorkTime": "175",
+                "totalLongPomTime": "100",
+                "totalLongSessions": "4",
+                "totalShortPomTime": "45",
+                "totalWorkSessions": "5",
+                "totalShortSessions": "8"
+            }
+        },
+        "relationships": {
+            "user": {
+                "data": {
+                    "id": "1",
+                    "type": "user"
+                }
+            }
         }
     }
 }
