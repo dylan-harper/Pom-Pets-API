@@ -181,3 +181,61 @@ Available endpoints:
 </details>
 
 ---
+
+#### 4. Update User: Updates part of a user
+
+<details>
+  <summary> Request </summary>
+  
+  *PATCH https://pom-pets-api.herokuapp.com/api/v1/users/1*
+  { "profilePhoto": "myNewPhoto.png" }
+  
+  </details>
+  
+  <details>
+    <summary> Response </summary>
+  
+```  
+  {
+    "data": {
+        "id": "1",
+        "type": "user",
+        "attributes": {
+            "id": 1,
+            "username": "Ross",
+            "email": "ross@vanMail.com",
+            "profilePhoto": "myNewPhoto.png"",
+            "settings": {
+                "workTime": "25",
+                "longPomTime": "10",
+                "shortPomTime": "5"
+            },
+            "projects": [
+                {
+                    "id": 1,
+                    "projectName": "stretch-tech",
+                    "projectPet": "tomato",
+                    "petHealth": 3,
+                    "petLevel": 1,
+                    "projectGitHub": "url/ross-van-stretch-tech.com",
+                    "petImage": "url/PigeonPet.png",
+                    "stats": {
+                        "totalWorkTime": "175",
+                        "totalLongPomTime": "100",
+                        "totalLongSessions": "4",
+                        "totalShortPomTime": "45",
+                        "totalWorkSessions": "5",
+                        "totalShortSessions": "8"
+                    },
+                    "created_at": "2022-06-01T19:26:22.891Z",
+                    "updated_at": "2022-06-01T19:26:22.891Z",
+                    "user_id": 1
+                }
+            ]
+        }
+    }
+}
+```
+</details>
+
+---
