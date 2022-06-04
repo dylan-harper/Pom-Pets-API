@@ -14,7 +14,7 @@ Available endpoints:
 <details>
   <summary> Request </summary>
   
-  *POST https://pom-pets-api.herokuapp.com/api/v1/users*
+  *POST `https://pom-pets-api.herokuapp.com/api/v1/users`*
   
   ```
       {
@@ -61,7 +61,7 @@ Available endpoints:
 <details>
   <summary> Request </summary>
   
-  *POST https://pom-pets-api.herokuapp.com/api/v1/projects*
+  *POST `https://pom-pets-api.herokuapp.com/api/v1/projects`*
   
   ```
       {
@@ -130,7 +130,7 @@ Available endpoints:
 <details>
   <summary> Request </summary>
   
-  *GET https://pom-pets-api.herokuapp.com/api/v1/users/1*
+  *GET `https://pom-pets-api.herokuapp.com/api/v1/users/1`*
   
   </details>
   
@@ -187,7 +187,7 @@ Available endpoints:
 <details>
   <summary> Request </summary>
   
-  *PATCH https://pom-pets-api.herokuapp.com/api/v1/users/1*
+  *PATCH `https://pom-pets-api.herokuapp.com/api/v1/users/1`*
   
   `
   { "profilePhoto": "myNewPhoto.png" }
@@ -248,7 +248,7 @@ Available endpoints:
 <details>
   <summary> Request </summary>
   
-  *PATCH https://pom-pets-api.herokuapp.com/api/v1/projects/1*
+  *PATCH `https://pom-pets-api.herokuapp.com/api/v1/projects/1`*
   
   `
   { projectPet: "bibby" }
