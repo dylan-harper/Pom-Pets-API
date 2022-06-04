@@ -1,7 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'update project' do
-
+RSpec.describe 'update user' do
   describe 'happy path' do
     before :each do
       @user = User.create(username: "Ross",
@@ -38,24 +37,24 @@ RSpec.describe 'update project' do
                                           :totalLongSessions => 9})
     end
 
-    it 'can update part of a projects nested attributes' do
-      attr_before = Project.last.stats["totalWorkTime"]
-      new_params = { stats: { totalWorkTime: 500 }}
+    it 'can update part of a users nested attributes' do
+      attr_before = User.last.settings["workTime"]
+      new_params = { settings: { workTime: 8675309 }}
       headers = {"CONTENT_TYPE" => "application/json"}
-      patch "/api/v1/projects/#{Project.last.id}", headers: headers, params: JSON.generate({project: new_params})
+      patch "/api/v1/users/#{User.last.id}", headers: headers, params: JSON.generate({user: new_params})
       expect(response).to be_successful
-      expect(Project.last.stats["totalWorkTime"]).to_not eq(attr_before)
-      expect(Project.last.stats["totalWorkTime"]).to eq(new_params[:stats][:totalWorkTime].to_s)
+      expect(User.last.settings["workTime"]).to_not eq(attr_before)
+      expect(User.last.settings["workTime"]).to eq(new_params[:settings][:workTime].to_s)
     end
 
-    it 'can update part of a projects normal attributes' do
-      attr_before = Project.last.projectPet
-      new_params = { projectPet: "bibby" }
+    it 'can update part of a users normal attributes' do
+      attr_before = User.last.username
+      new_params = { username: "bibby" }
       headers = {"CONTENT_TYPE" => "application/json"}
-      patch "/api/v1/projects/#{Project.last.id}", headers: headers, params: JSON.generate({project: new_params})
+      patch "/api/v1/users/#{User.last.id}", headers: headers, params: JSON.generate({user: new_params})
       expect(response).to be_successful
-      expect(Project.last.projectPet).to_not eq(attr_before)
-      expect(Project.last.projectPet).to eq(new_params[:projectPet])
+      expect(User.last.username).to_not eq(attr_before)
+      expect(User.last.username).to eq(new_params[:username])
     end
   end
 
@@ -96,17 +95,17 @@ RSpec.describe 'update project' do
     end
 
     it 'cannot update part of a projects nested attributes' do
-      new_params = { stats: { totalwerkTime: 500 }}
+      new_params = { settings: { werkTime: 500 }}
       headers = {"CONTENT_TYPE" => "application/json"}
-      patch "/api/v1/projects/#{Project.last.id}", headers: headers, params: JSON.generate({project: new_params})
+      patch "/api/v1/users/#{User.last.id}", headers: headers, params: JSON.generate({user: new_params})
       output = JSON.parse(response.body, symbolize_names: true)
       expect(output[:status]).to eq("400 Bad Request")
     end
 
     it 'cannot update part of a projects normal attributes' do
-      new_params = { projectMet: "bibby" }
+      new_params = { usahname: "bibby" }
       headers = {"CONTENT_TYPE" => "application/json"}
-      patch "/api/v1/projects/#{Project.last.id}", headers: headers, params: JSON.generate({project: new_params})
+      patch "/api/v1/users/#{User.last.id}", headers: headers, params: JSON.generate({user: new_params})
       output = JSON.parse(response.body, symbolize_names: true)
       expect(output[:status]).to eq("400 Bad Request")
     end
