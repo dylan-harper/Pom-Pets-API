@@ -19,6 +19,20 @@ class Api::V1::UsersController < ApplicationController
     end
   end
 
+  def update
+    user = User.find(params[:id])
+    if user_params[:settings] && user.settings.keys.include?(user_params[:settings].keys.first)
+      user.update_column(:settings, user.settings.merge({ user_params[:settings].keys.first => user_params[:settings].values.first }))
+      return render json: UserSerializer.new(user), status: 200
+    end
+
+    if user.update(user_params) && user_params != {}
+      return render json: UserSerializer.new(user), status: 200
+    else
+      return render json: { error: user.errors, status: "400 Bad Request" }, status: 400
+    end
+  end
+
 private
 
   def user_params
