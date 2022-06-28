@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       resources :users, only: [:create, :show, :update]
-      resources :projects, only: [:create, :update]
+      resources :projects, only: [:create, :update, :destroy]
     end
   end
 

@@ -8,5 +8,5 @@ class Project < ApplicationRecord
                         :projectGitHub,
                         :petImage,
                         :stats,
-                        :user_id
+                        :user_id                      
 end
