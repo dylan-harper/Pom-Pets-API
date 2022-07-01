@@ -314,6 +314,10 @@ Available endpoints:
   
   *DELETE `https://pom-pets-api.herokuapp.com/api/v1/users/1`*
   
+  or
+  
+   *DELETE `https://pom-pets-api.herokuapp.com/api/v1/projects/1`*
+
   </details>
   
   <details>
