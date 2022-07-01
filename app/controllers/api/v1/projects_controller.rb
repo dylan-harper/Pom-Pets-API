@@ -23,6 +23,16 @@ class Api::V1::ProjectsController < ApplicationController
     end
   end
 
+  def destroy
+    project = Project.find_by(id: params[:id])
+    if project
+      project.destroy
+      return render json: { "deleted": "Project #{project.id}" }, status: 200
+    else
+      return render json: { "error": "Project with ID #{params[:id]} does not exist" }, status: 400
+    end
+  end
+
 private
 
   def project_params
