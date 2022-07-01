@@ -306,3 +306,24 @@ Available endpoints:
 </details>
 
 ---
+
+#### 5. Delete User of Project: Destroy an invidivudal project, or a user and all its dependent projects
+
+<details>
+  <summary> Request </summary>
+  
+  *DELETE `https://pom-pets-api.herokuapp.com/api/v1/users/1`*
+  
+  </details>
+  
+  <details>
+    <summary> Response </summary>
+  
+```  
+  {
+    "deleted": "User 1"
+  }
+```
+</details>
+
+---
