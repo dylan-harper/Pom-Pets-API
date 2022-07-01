@@ -33,6 +33,16 @@ class Api::V1::UsersController < ApplicationController
     end
   end
 
+  def destroy
+    user = User.find_by(id: params[:id])
+    if user
+      user.destroy
+      return render json: { "deleted": "User #{user.id}" }, status: 200
+    else
+      return render json: { "error": "User with ID #{params[:id]} does not exist" }, status: 400
+    end
+  end
+
 private
 
   def user_params
