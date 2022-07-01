@@ -307,7 +307,7 @@ Available endpoints:
 
 ---
 
-#### 5. Delete User of Project: Destroy an invidivudal project, or a user and all its dependent projects
+#### 5. Delete User or Project: Destroy an invidivudal project, or a user and all its dependent projects
 
 <details>
   <summary> Request </summary>
